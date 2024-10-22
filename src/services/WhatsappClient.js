@@ -50,4 +50,22 @@ function sendMessage(phoneNumber, message, clientId, file) {
   }
 }
 
-module.exports = { startClient, sendMessage };
+async function broadcastMessage(
+  recipients,
+  messageTemplate,
+  clientId,
+  delay = 1000
+) {
+  for (const recipient of recipients) {
+    const phoneNumber = `${recipient.phone}@c.us`;
+    const message = messageTemplate.replace("[nama]", recipient.name);
+    console.log(`sending message to ${recipient.name} at ${recipient.phone}`);
+    await sendMessage(phoneNumber, message, clientId);
+
+    await new Promise((resolve) => {
+      setTimeout(resolve, delay);
+    });
+  }
+}
+
+module.exports = { startClient, sendMessage, broadcastMessage };
