@@ -1,5 +1,20 @@
 # Node.js Rest API to receive and send message across WhatsApp
 
+## How to use
+
+1. jalankan api `[baseUrl]/:id/start`. id atur dengan bebas, jangan gunakan id yang sama jika ingin melakukan request lagi
+2. di terminal akan muncul qrCode, berfungsi untuk login ke api perangkat Whatsapp kita
+3. setelah scan qrCode, tunggu sampai di terminal ada pesan "client ready"
+4. jalankan api `[baseUrl]/message` dengan body sebagai berikut:
+
+```bash
+{
+    "phoneNumber":"628xxxxxxx@c.us",
+    "message": "your message",
+    "clientId": "513"
+}
+```
+
 ## Installation
 
 Create an Ubuntu EC2 instance and connect with ssh
@@ -32,7 +47,11 @@ $ pm2 start dist/main.js --name <application_name>
 ```
 
 ## How to use:
+
 ### 1. Run `cp .env.example .env`
+
 ### 1. Inside the project run `npm install`
+
 ### 2. Start the app with `npm start`
-### 3. Authenticate your Whatsapp in terminal with Qr code 
+
+### 3. Authenticate your Whatsapp in terminal with Qr code
