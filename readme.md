@@ -2,6 +2,8 @@
 
 ## How to use
 
+[Documentation API](https://documenter.getpostman.com/view/15626346/2sAXxY492L)
+
 1. jalankan api `[baseUrl]/:id/start`. id atur dengan bebas, jangan gunakan id yang sama jika ingin melakukan request lagi
 2. di terminal akan muncul qrCode, berfungsi untuk login ke api perangkat Whatsapp kita
 3. setelah scan qrCode, tunggu sampai di terminal ada pesan "client ready"
